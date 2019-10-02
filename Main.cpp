@@ -27,7 +27,7 @@ int main()
   // SETUP ------------------------------------- //
 
   Swarm swarm;
-  const int DELAY = 1500;
+  const int DELAY = 800;
 
   // GRAPHICS LOOP START ----------------------- //
 
@@ -38,7 +38,8 @@ int main()
     if(elapsedMillis < DELAY) continue;
     elapsedMillis -= DELAY;
 
-    screen.clear();
+    //screen.clear();
+
     swarm.update(elapsedMillis);
 
     unsigned char red = (unsigned char)((1 + sin(elapsedMillis * 0.0001)) * 128);
@@ -54,6 +55,8 @@ int main()
 
       screen.setPixel(x,y,red,green,blue);
     }
+
+    screen.boxBlur();
 
     // Draw the screen
     screen.update();
