@@ -87,6 +87,7 @@ void Screen::clear(){
 void Screen::boxBlur(){
   // buffer data swap
   Uint32 *temp = m_buffer1;
+  double blurAmount = 1.0; // Best between 0.9 and 1.0
   m_buffer1 = m_buffer2;
   m_buffer2 = temp;
 
@@ -130,9 +131,9 @@ void Screen::boxBlur(){
       }
 
       // Divide by 9 for the 9 pixels checked in box pattern for total color
-      Uint8 red = redTotal/9;
-      Uint8 green = greenTotal/9;
-      Uint8 blue = blueTotal/9;
+      Uint8 red = redTotal/9 * blurAmount;
+      Uint8 green = greenTotal/9 * blurAmount;
+      Uint8 blue = blueTotal/9 * blurAmount;
 
       setPixel(x,y,red,green,blue);
 
