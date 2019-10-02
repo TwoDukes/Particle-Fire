@@ -26,8 +26,8 @@ int main()
 
   // SETUP ------------------------------------- //
 
-  Uint32 fps = 0;
   Swarm swarm;
+  const int DELAY = 1500;
 
   // GRAPHICS LOOP START ----------------------- //
 
@@ -35,9 +35,11 @@ int main()
   {
     // Update Particles
     int elapsedMillis = SDL_GetTicks();
-    
+    if(elapsedMillis < DELAY) continue;
+    elapsedMillis -= DELAY;
+
     screen.clear();
-    swarm.update();
+    swarm.update(elapsedMillis);
 
     unsigned char red = (unsigned char)((1 + sin(elapsedMillis * 0.0001)) * 128);
     unsigned char green = (unsigned char)((1 + sin(elapsedMillis * 0.0002)) * 128);
@@ -48,21 +50,13 @@ int main()
       Particle particle = pParticles[i];
 
       int x = (particle.m_x + 1) * Screen::SCREEN_WIDTH/2;
-      int y = (particle.m_y + 1) * Screen::SCREEN_HEIGHT/2;
+      int y = particle.m_y * Screen::SCREEN_WIDTH/2 + Screen::SCREEN_HEIGHT/2;
 
       screen.setPixel(x,y,red,green,blue);
     }
 
     // Draw the screen
     screen.update();
-
-    /* FPS Counter
-    if(elapsedMillis % 1000 == 0){
-      cout << "FPS: " << fps << endl;
-      fps = 0;
-    }
-    ++fps;
-    */
 
     // check for events
     if(!screen.processEvents()){

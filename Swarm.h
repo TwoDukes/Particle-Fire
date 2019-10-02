@@ -8,14 +8,15 @@ namespace Particles {
 class Swarm
 {
 public:
-  static const int NPARTICLES = 5000;
+  static const int NPARTICLES = 10000;
 
 private:
   Particle * m_particles;
+  int lastTime;
 public:
   Swarm();
   ~Swarm();
-  void update();
+  void update(int elapsedMillis);
 
   const Particle * const getParticles(){return m_particles;}
 };
