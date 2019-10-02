@@ -53,6 +53,8 @@ bool Screen::init()
 
 void Screen::setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue){
 
+  if(x < 0 || x >= SCREEN_WIDTH || y < 0 || y >= SCREEN_HEIGHT) return; // remove for efficiency
+
   Uint32 color = 0;
 
   color += red;
@@ -71,6 +73,10 @@ void Screen::update(){
   SDL_RenderClear(m_renderer);
   SDL_RenderCopy(m_renderer, m_texture, NULL, NULL);
   SDL_RenderPresent(m_renderer);
+}
+
+void Screen::clear(){
+  memset(m_buffer, 0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
 }
 
 bool Screen::processEvents()
