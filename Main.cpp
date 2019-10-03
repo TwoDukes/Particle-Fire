@@ -27,7 +27,7 @@ int main()
   // SETUP ------------------------------------- //
 
   Swarm swarm;
-  const int DELAY = 800;
+  const int DELAY = 3000;
 
   // GRAPHICS LOOP START ----------------------- //
 
@@ -42,9 +42,9 @@ int main()
 
     swarm.update(elapsedMillis);
 
-    unsigned char red = (unsigned char)((1 + sin(elapsedMillis * 0.0001)) * 128);
-    unsigned char green = (unsigned char)((1 + sin(elapsedMillis * 0.0002)) * 128);
-    unsigned char blue = (unsigned char)((1 + sin(elapsedMillis * 0.0003)) * 128);
+    unsigned char red = (unsigned char)((1 + sin(elapsedMillis * 0.0002)) * 128);
+    unsigned char green = (unsigned char)((1 + sin(elapsedMillis * 0.0003)) * 128);
+    unsigned char blue = (unsigned char)((1 + sin(elapsedMillis * 0.0004)) * 128);
 
     const Particle * const pParticles = swarm.getParticles();
     for(int i = 0; i < Swarm::NPARTICLES; i++){

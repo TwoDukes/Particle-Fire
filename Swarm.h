@@ -8,7 +8,7 @@ namespace Particles {
 class Swarm
 {
 public:
-  static const int NPARTICLES = 10000;
+  static const int NPARTICLES = 50000;
 
 private:
   Particle * m_particles;

@@ -87,7 +87,7 @@ void Screen::clear(){
 void Screen::boxBlur(){
   // buffer data swap
   Uint32 *temp = m_buffer1;
-  double blurAmount = 1.0; // Best between 0.9 and 1.0
+  double blurAmount = 1; // Best between 0.9 and 1
   m_buffer1 = m_buffer2;
   m_buffer2 = temp;
 

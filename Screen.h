@@ -10,8 +10,8 @@ class Screen
 {
   
   public:
-    static const int SCREEN_WIDTH = 800;
-    static const int SCREEN_HEIGHT = 600;
+    static const int SCREEN_WIDTH = 900;
+    static const int SCREEN_HEIGHT = 900;
 
   private:
     SDL_Window *m_window;
