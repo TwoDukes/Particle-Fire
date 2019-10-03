@@ -34,9 +34,10 @@ void Particle::update(int interval){
   m_x += xspeed * interval;
   m_y += yspeed * interval;
 
-  // if(m_y < -1 || m_y > 1 || m_x < -1 || m_x > 1){
-  //   init();
-  // }
+  if(m_y < -1 || m_y > 1 || m_x < -1 || m_x > 1){
+    //init();
+    m_speed = -m_speed * 0.5;
+  }
 
 }
 

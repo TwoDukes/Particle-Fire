@@ -59,10 +59,10 @@ void Screen::setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue){
 
   Uint32 color = 0;
 
-  color += red;
-  color <<= 8;
-  color += green;
-  color <<= 8;
+  color += red; 
+  color <<= 8; 
+  color += green; 
+  color <<= 8; 
   color += blue;
   color <<= 8;
   color += 0xFF;
@@ -85,9 +85,11 @@ void Screen::clear(){
 }
 
 void Screen::boxBlur(){
+
+  double blurAmount = 1; // Best between 0.9 and 1
+
   // buffer data swap
   Uint32 *temp = m_buffer1;
-  double blurAmount = 1; // Best between 0.9 and 1
   m_buffer1 = m_buffer2;
   m_buffer2 = temp;
 
@@ -117,7 +119,7 @@ void Screen::boxBlur(){
             Uint32 color = m_buffer2[currentY * SCREEN_WIDTH + currentX]; // get current pixel
 
             // Get colors from pixel
-            Uint8 red = color >> 24;
+            Uint8 red = color >> 24; //123456FF
             Uint8 green = color >> 16;
             Uint8 blue = color >> 8;
 

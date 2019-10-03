@@ -1,3 +1,5 @@
+//  g++ Particle.cpp Swarm.cpp Screen.cpp Main.cpp -o fire -lSDL2
+
 #include<iostream>
 #include "SDL2/SDL.h"
 #include <math.h>
